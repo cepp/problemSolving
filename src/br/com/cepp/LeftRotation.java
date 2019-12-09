@@ -1,20 +1,23 @@
 package br.com.cepp;
 
+import java.util.Arrays;
+
+import static java.lang.System.*;
+
 public class LeftRotation {
     public static void main(String[] args) {
-        int n = 5;
-        int d = 4,ojknim5;
+        int d = 4;
 
-        int[] a = new int[n];
-        int[] aItems = {1, 2, 3, 4, 5};//, 1, 2, 3, 4, 5, 1, 2, 3, 4, 5, 1, 2, 3, 4, 5};
+        int[] a = {1, 2, 3, 4, 5, 1, 2, 3, 4, 5, 1, 2, 3, 4, 5};
 
-        for (int i = 0; i < n; i++) {
-            int newIndex = d - i;
-            a[newIndex] = aItems[i];
+        for(int i = 0; i < d; i++) {
+            int tmp = a[0];
+            System.arraycopy(a, 1, a, 0, a.length - 1);
+            a[a.length-1] = tmp;
         }
 
-        for(int i = 0; i < n; i++) {
-            System.out.print(String.format("%s ",a[i]));
-        }
+
+        Arrays.stream(a).forEach(i -> out.print(i + " "));
+        out.println("\n5 1 2 3 4 5 1 2 3 4 5 1 2 3 4");
     }
 }
